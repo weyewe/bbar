@@ -4,7 +4,13 @@ Brandedbar::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+  get 'about_branded_bar' => 'home#about', as: :about 
+  get 'dashboard' => 'home#dashboard', as: :dashboard 
+  
+  resources :items do
+    resources :bids 
+  end  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

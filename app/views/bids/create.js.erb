@@ -1,0 +1,26 @@
+
+<% if @bid.persisted? %>
+	<% new_content =  escape_javascript(render :partial => "bids/success_bid", 
+	      :locals=> {
+								:bid => @bid,
+								:item => @item 
+								}
+	) %>
+<% else %>
+	<% new_content =  escape_javascript(render :partial => "bids/new/form", 
+	      :locals=> {
+								:new_bid => @bid,
+								:item => @item 
+								}
+	) %> 
+<% end %> 
+
+
+
+              
+              
+$(document).ready(function(){
+  $('#bid-wrapper .content').replaceWith('<%= new_content %>'); 
+});
+
+

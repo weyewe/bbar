@@ -1,0 +1,43 @@
+
+
+<div class="hero-unit">
+  
+
+  <%= form_for(resource, :as => resource_name,  :html=>{:class =>"form-signin"}, 
+        :url => session_path(resource_name)) do |f| %>
+
+		<%= devise_error_messages! %>
+
+        <h2 class="form-signin-heading" style="text-align: center;"> Sign in to BrandedBar</h2>
+        
+       
+            <%= f.email_field :email, :class=>"form-control", :type => "text",
+ 								:placeholder => "Email address"%> 
+<br />
+
+						<%= f.email_field :password, :class=>"form-control", :type => "password",
+ 								:placeholder => "Password" %>
+
+						<%= f.email_field :password_confirmation,
+						 	:class=>"form-control", :type => "password",
+									:placeholder => "Confirm Password"%>
+          
+         
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button> 
+
+
+					<br />
+					<br />
+<%= link_to "Back",  request.referrer  %>
+  <% end %>
+  
+  
+  
+        
+        
+  <!-- <p><a class="btn btn-primary btn-large">Learn more »</a></p> -->
+</div>
+
+
+
+ 

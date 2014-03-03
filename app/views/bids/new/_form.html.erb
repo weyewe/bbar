@@ -1,0 +1,36 @@
+<%= form_for new_bid, :url => item_bids_url(item) , 
+          :html => {:class=> "well form-search content ajaxform" }  do |f| %>
+    
+	<% if new_bid.errors.size != 0 %>
+		<div class="alert alert-danger">
+			<% new_bid.errors.messages.each do |x,y| %>
+				<% y.each do |k| %>
+					<span><%= x.to_s + " " +  k.to_s %></span><br />
+				<% end %> 
+				
+			<% end %>
+			
+		</div>
+	<% end %>
+
+	<%= f.text_field :bid_price,					
+							:class=>"form-control", 
+							:type => "text",
+							:placeholder => "Enter your price",
+							:style => "width: 50%; margin: 0 auto;",
+							:value => '' %>
+	  
+
+<br />
+<p>
+	<%= f.submit "Bid Now" , :class => "btn btn-lg btn-success" %>
+	
+	<!-- <button type="submit" class="btn btn-lg btn-success">Bid Now</button> -->
+</p>
+
+
+
+
+  
+  
+<% end %>

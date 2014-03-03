@@ -1,0 +1,68 @@
+
+<div class="container">
+	<%= render :partial => "header" %>
+  
+
+	
+
+  <div class="jumbotron">
+		<%= image_tag("the_branded_bar.jpg" , :style => "max-width: 500px; display: block; max-width: 100%; ") %>
+    <h1><%= @item.title %></h1>
+    <p class="lead">
+    	<%= @item.description %>
+    </p>
+
+		<div id='bid-wrapper'>
+			
+			<% if current_user and current_user.has_bid?( @item ) %>
+			<span class="label label-info">You have bid for this item!</span>
+			<% end %>
+			
+			<%= render :partial => "bids/new/form", 
+						:locals => {
+								:new_bid => Bid.new, 
+								:item => @item
+								} %>
+		</div>
+		
+    
+  </div>
+
+
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Bid History (only updated every 3 hours)</div>
+
+	  <!-- Table -->
+	  <table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>DateTime</th> 
+					<th>Amount</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<% @bids.each do |bid| %>
+					<tr>
+						<td><%= bid.id %></td>
+						<td><%= bid.created_at %></td> 
+						<td><%= bid.bid_price %></td>
+					</tr>
+				<% end %> 
+				 
+			</tbody>
+	  </table>
+	</div>
+	
+ 
+
+  <div class="footer">
+    <p>© Company 2014</p>
+  </div>
+
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript

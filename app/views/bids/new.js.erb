@@ -1,0 +1,17 @@
+ 
+	<% new_content =  escape_javascript(render :partial => "bids/new/form", 
+	      :locals=> {
+								:new_bid => Bid.new,
+								:item => @item 
+								}
+	) %> 
+
+
+
+              
+              
+$(document).ready(function(){
+  $('#bid-wrapper .content').replaceWith('<%= new_content %>'); 
+});
+
+

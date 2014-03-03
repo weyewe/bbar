@@ -1,0 +1,44 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="<%= nav_class(params,'index') %>">
+			<%= link_to "Current Sale", root_url %>
+		</li>
+		
+    <li class="<%= nav_class(params,'about') %>">
+			<%= link_to "About", about_url %> 
+		</li>
+		
+		
+		
+	<% if current_user %>
+	
+		<li class="<%= nav_class(params,'index') %>">
+			<%= link_to "Dashboard", dashboard_url %> 
+		</li>
+	
+		<li>
+			<%= link_to "Log Out", destroy_user_session_url %> 
+		</li>
+		
+	<% end %>
+    
+
+	<% if not current_user %>
+		<li>
+			<%= link_to "Log In" , new_user_session_url %> 
+		</li>
+	
+	
+		<li>
+			<%= link_to "Sign Up", new_user_registration_url%>
+		</li>
+	<% end %> 
+
+  </ul>
+  <h3 class="text-muted">BrandedBar</h3>
+
+	<% if current_user  %>
+	<span class="label label-info">welcome, <%= current_user.email%></span>
+	<% end %>
+</div>
+

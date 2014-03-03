@@ -1,0 +1,11 @@
+<div class='content'>
+	<p class="btn btn-lg btn-success"> 
+		Success bid with price <%= bid.bid_price.to_i %> 
+	</p>
+	<br />
+
+
+	<%= link_to "Revise Bid", 
+				new_item_bid_url(item) , 
+				:class => "btn btn-lg btn-primary ajaxlink "%> 
+</div>

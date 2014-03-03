@@ -35,6 +35,8 @@ end
 
 
 gem 'devise'
+gem 'simple_form'
+
 gem "kaminari"  
 gem 'uuidtools'
 
